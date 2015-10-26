@@ -16,8 +16,8 @@ Version update
 - 1.0.1 initialize project
 
 
-API
----
+DEMO
+----
 
 .. sourcecode:: python
 
