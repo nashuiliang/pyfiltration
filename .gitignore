@@ -7,10 +7,6 @@
 
 /build/
 /dist/
-# repos buildout
-/bin/
-/develop-eggs/
-/eggs/
-/jianxun.egg-info/
+/pyfiltration.egg-info/
 
 !.gitignore
