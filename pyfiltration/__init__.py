@@ -57,7 +57,7 @@ class _Filtration(object):
 
         self.items = items
         self.request = request
-        assert getattr(self.get_argument, "request", None)
+        assert getattr(self.request, "request", None)
 
         self.request_arguments = self.request.request.arguments
 
