@@ -1,0 +1,16 @@
+# temporary file
+.*
+*~
+\#*
+
+*.pyc
+
+/build/
+/dist/
+# repos buildout
+/bin/
+/develop-eggs/
+/eggs/
+/jianxun.egg-info/
+
+!.gitignore
