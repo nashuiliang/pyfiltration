@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-__version__ = "1.0.2"
+__version__ = "1.0.3"
 
 import logging
 import datetime
@@ -94,7 +94,7 @@ class _Filtration(object):
             if item.type_ == int:
                 return int(value)
             elif item.type_ == str:
-                return str(value)
+                return value
             raise FiltrationException(u"{} {}: type({}) not support".format(
                 self.get_request_detail(), item.name, item.type_), item.err_message)
         except:
