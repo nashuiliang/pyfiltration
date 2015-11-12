@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-__version__ = "1.0.6"
+__version__ = "1.0.7"
 
 import logging
 import datetime
@@ -277,15 +277,4 @@ class Helper(object):
     def get_timestamp_from_timestr(cls, val, formats):
         import datetime
         import time
-
-        #: Bug Year 2000 (Y2K) issues: Values 100–1899 are always illegal
-        val_date = datetime.datetime.strptime(val, formats)
-        if val_date.year >= 1900:
-            return time.mktime(val_date.timetuple())
-
-        if val_date.year < 1970:
-            raise ValueError("year out of range")
-
-        epoch = datetime.datetime(1970, 1, 1)
-        diff = val_date - epoch
-        return diff.days * 24 * 3600 + diff.seconds
+        return time.mktime(datetime.datetime.strptime(val, formats).timetuple())
