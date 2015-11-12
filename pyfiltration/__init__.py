@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-__version__ = "1.0.3"
+__version__ = "1.0.4"
 
 import logging
 import datetime
@@ -125,9 +125,9 @@ class _Filtration(object):
                 else:
                     value = funcs.func(value)
 
-            except:
-                raise FiltrationException(u"{} {}: uses failed: {}({})".format(
-                    self.get_request_detail(), item.name, funcs.f_, value), funcs.err_message)
+            except Exception as e:
+                raise FiltrationException(u"{} {}: uses failed: {}({}) {}".format(
+                    self.get_request_detail(), item.name, funcs.f_, value), funcs.err_message, e)
         return value
 
 

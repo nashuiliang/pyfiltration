@@ -13,6 +13,7 @@ You can install Pyfiltration from PyPI with
 Version update
 --------------
 
+- 1.0.4 raise Exception
 - 1.0.1 initialize project
 
 
