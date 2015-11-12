@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-__version__ = "1.0.4"
+__version__ = "1.0.5"
 
 import logging
 import datetime
@@ -110,9 +110,9 @@ class _Filtration(object):
                     result = funcs.func(value, **funcs.args)
                 else:
                     result = funcs.func(value)
-            except:
-                raise FiltrationException(u"{} {}: validate failed: {}({})".format(
-                    self.get_request_detail(), item.name, funcs.f_, value), funcs.err_message)
+            except Exception as e:
+                raise FiltrationException(u"{} {}: validate failed: {}({}) {}".format(
+                    self.get_request_detail(), item.name, funcs.f_, value, e), funcs.err_message)
 
             if not result:
                 raise FiltrationException(u"{} {}: validate failed: {}({})".format(
@@ -127,7 +127,7 @@ class _Filtration(object):
 
             except Exception as e:
                 raise FiltrationException(u"{} {}: uses failed: {}({}) {}".format(
-                    self.get_request_detail(), item.name, funcs.f_, value), funcs.err_message, e)
+                    self.get_request_detail(), item.name, funcs.f_, value, e), funcs.err_message)
         return value
 
 
