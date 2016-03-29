@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-__version__ = "1.0.8"
+__version__ = "1.0.9"
 
 import logging
 import datetime
@@ -186,6 +186,10 @@ class Helper(object):
         r'@(?:[A-Z0-9](?:[A-Z0-9-]{0,247}[A-Z0-9])?\.)+(?:[A-Z]{2,6}|[A-Z0-9-]{2,}(?<!-))$',
         re.IGNORECASE
     )
+    EMAIL_ADDRESS_SUFFIX_REG = re.compile(
+        r'^@(?:[A-Z0-9](?:[A-Z0-9-]{0,247}[A-Z0-9])?\.)+(?:[A-Z]{2,6}|[A-Z0-9-]{2,}(?<!-))$',
+        re.IGNORECASE
+    )
     URL_ADDRESS_REG = re.compile(
         r"^(https?|ftp):\/\/"  # http:// or https:// or ftp://
         r"(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?"  # domain
@@ -212,6 +216,10 @@ class Helper(object):
     @classmethod
     def is_valid_email_address(cls, email):
         return cls.EMAIL_ADDRESS_REG.search(email) is not None
+
+    @classmethod
+    def is_valid_email_address_suffix(cls, suffix):
+        return cls.EMAIL_ADDRESS_SUFFIX_REG.search(suffix) is not None
 
     @classmethod
     def is_valid_string(cls, val, exists=None):
