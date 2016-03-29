@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-__version__ = "1.0.7"
+__version__ = "1.0.8"
 
 import logging
 import datetime
@@ -11,7 +11,7 @@ import types
 import urlparse
 
 #: logging handler
-_logger = logging.getLogger("pymysqlslave")
+_logger = logging.getLogger("pyfiltration")
 
 __all__ = ["FiltrationException", "Item", "filtration", "Helper"]
 
@@ -220,7 +220,7 @@ class Helper(object):
         for cond in set(exists):
             if cond == cls.STRING_HAS_NUMBER and re.search(r"\d", val) is None:
                 return False
-            elif cond == cls.STRING_HAS_LETTER and re.search(r"\w", val) is None:
+            elif cond == cls.STRING_HAS_LETTER and re.search(r"[a-zA-Z]", val) is None:
                 return False
         return True
 
